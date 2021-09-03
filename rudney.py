@@ -15,13 +15,12 @@ async def on_ready():
     
 
 @client.event
-async def postar(message):
+async def on_message(message):
     if message.content.startswith('!hello'):
         embedVar = discord.Embed(title="Title", description="Desc", color=0x00ff00)
         embedVar.add_field(name="Field1", value="hi", inline=False)
         embedVar.add_field(name="Field2", value="hi2", inline=False)
         await message.channel.send(embed=embedVar)
-    
 
 
 
