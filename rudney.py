@@ -13,7 +13,7 @@ day = datetime.datetime.today()
 async def on_ready():
     print("Inicializado")
     
-
+''''''
 @client.event
 async def on_message(message):
     if message.content.startswith('$Cria'):
@@ -25,17 +25,17 @@ async def on_message(message):
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    
-    while time != "18:48":
+    '''
+    while time != "18:09":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
-            sleep(1.5)
+            sleep(1.5)'''
 
-    if day.weekday() == 4 and time =="18:48" :
+    '''if day.weekday() == 4:
         embedVar = discord.Embed(title="Sexta dos CRIA", description="É sexta feira meus bacanos!!!", color=0x00ff00)
         embedVar.add_field(name="Field1", value="hi", inline=False)
         embedVar.add_field(name="Field2", value="hi2", inline=False)
-        await message.channel.send(embed=embedVar)
+        await message.channel.send(embed=embedVar)'''
 
     
 
