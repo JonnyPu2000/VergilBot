@@ -17,13 +17,13 @@ async def on_ready():
     for i in range(0,60):
         time = datetime.datetime.now().strftime("%H:%M")
         print(time)
-        if time == "13:02":
+        if time == "13:05":
             print("FOI")
             break
         tm.sleep(5)
     print("SAIU") 
 
-    if day.weekday() == 4 and time == "13:03":
+    if day.weekday() == 4 and time == "13:06":
         print("ENTROU")
         await channel.send("https://www.youtube.com/watch?v=pCTSdupScwA")
         await channel.send("https://www.youtube.com/watch?v=8GX9--xhf_A")
