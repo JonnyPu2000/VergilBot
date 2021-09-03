@@ -12,7 +12,8 @@ async def on_ready():
     print("Idosa Peladinha")
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
-    while time != "12:40":
+    while time != "12:43":
+        print(time)
         time = datetime.datetime.now().strftime("%H:%M")
     if day.weekday() == 4 and time == "12:40":
         await channel.send("https://www.youtube.com/watch?v=pCTSdupScwA")
