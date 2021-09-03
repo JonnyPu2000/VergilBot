@@ -18,7 +18,7 @@ async def on_ready():
     print("Inicializado")
 
 
-    channel = client.get_channel(883328580455637045)
+    channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M:%S")
 
     while True:
@@ -26,8 +26,11 @@ async def on_ready():
             print(time)
             sleep(1)
 
-            if day.weekday() == 4 and time == "20:58:00":
-                        embed = Embed(title = "É Sexta Feira Meus Bacanos!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
+            if day.weekday() == 4 and time == "15:00:00":
+                        print("foi")
+                        embed = Embed(title = "É SEXTA FEIRA MEUS BACANOS!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
+                        embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_image(url="https://c.tenor.com/J5O9kElWluYAAAAC/mucalol-smurfdomuca-muca-muquinha-dan%C3%A7ando-dan%C3%A7a-dancing-macaco-macacolol.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/criaSexta.mp4"))
                         await channel.send(file = File("./Assets/shrekSexta.mp4"))
@@ -35,3 +38,4 @@ async def on_ready():
 
 
 client.run(os.environ['DISCORD_TOKEN'])
+#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
