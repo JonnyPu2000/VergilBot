@@ -15,31 +15,24 @@ async def on_ready():
     
 ''''''
 @client.event
-async def on_message(message):
-    if message.content.startswith('$Cria'):
-        embedVar = discord.Embed(title="Sexta dos CRIA", description="É sexta feira meus bacanos!!!", color=0x00ff00)
-        embedVar.add_field(name="Field1", value="hi", inline=False)
-        embedVar.add_field(name="Field2", value="hi2", inline=False)
-        await message.channel.send(embed=embedVar)
+async def posta():
 
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    '''
-    while time != "18:09":
+    while time != "18:58":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
-            sleep(1.5)'''
+            sleep(2)
 
-    '''if day.weekday() == 4:
+    if day.weekday() == 4 and time == "18:58":
         embedVar = discord.Embed(title="Sexta dos CRIA", description="É sexta feira meus bacanos!!!", color=0x00ff00)
-        embedVar.add_field(name="Field1", value="hi", inline=False)
-        embedVar.add_field(name="Field2", value="hi2", inline=False)
-        await message.channel.send(embed=embedVar)'''
+        embedVar.add_field(name="Sexta dos cria", value="https://www.youtube.com/watch?v=pCTSdupScwA", inline=False)
+        embedVar.add_field(name="Sherekão", value="https://www.youtube.com/watch?v=HJY9dnDLgEQ", inline=False)
+        await message.channel.send(embed=embedVar)
 
     
 
 
 
 client.run(os.environ['DISCORD_TOKEN'])
-client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
