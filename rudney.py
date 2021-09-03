@@ -1,6 +1,8 @@
 import discord
-from discord import File
+from discord import File, Embed
 from discord import message
+from discord import colour
+from discord.embeds import Embed
 from discord.ext import commands
 import datetime
 import os
@@ -25,7 +27,9 @@ async def on_ready():
             sleep(2)
 
     if day.weekday() == 4 and time == "19:28":
-        await channel.send(file = File("./Assets/criaSexta.mp4"))
-        await channel.send(file = File("./Assets/shrekSexta.mp4"))
+        
+        embed = Embed(title = "É Sexta Feira Meus Bacanos!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
+        embed.video(File("./Assets/criaSexta.mp4"))
+        embed.video(File("./Assets/shrekSexta.mp4"))
 
 client.run(os.environ['DISCORD_TOKEN'])
