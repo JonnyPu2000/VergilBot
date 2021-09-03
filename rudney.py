@@ -1,4 +1,5 @@
 import discord
+from discord import File
 from discord import message
 from discord.ext import commands
 import datetime
@@ -18,13 +19,13 @@ async def on_ready():
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    while time != "19:22":
+    while time != "19:26":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
             sleep(2)
 
-    if day.weekday() == 4 and time == "19:22":
-        await channel.send("/assets/criaSexta.mp4")
-        await channel.send("/assets/shrekSexta.mp4")
+    if day.weekday() == 4 and time == "19:26":
+        await channel.send(file = File("/assets/criaSexta.mp4"))
+        await channel.send(file = File("/assets/shrekSexta.mp4"))
 
 client.run(os.environ['DISCORD_TOKEN'])
