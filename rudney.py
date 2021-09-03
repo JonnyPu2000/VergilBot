@@ -15,7 +15,7 @@ async def on_ready():
     
 
 @client.event
-async def postar(args):
+async def postar(message):
     if message.content.startswith('!hello'):
         embedVar = discord.Embed(title="Title", description="Desc", color=0x00ff00)
         embedVar.add_field(name="Field1", value="hi", inline=False)
