@@ -26,7 +26,7 @@ async def on_ready():
             print(time)
             sleep(1)
 
-            if day.weekday() == 4 and time == "20:53:00":
+            if day.weekday() == 4 and time == "20:56:00":
                         embed = Embed(title = "É Sexta Feira Meus Bacanos!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/criaSexta.mp4"))
