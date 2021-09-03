@@ -18,7 +18,7 @@ async def on_ready():
     print("Inicializado")
 
 
-    channel = client.get_channel(645698417544265769)
+    channel = client.get_channel(883328580455637045)
     time = datetime.datetime.now().strftime("%H:%M")
 
     while time != "19:56":
