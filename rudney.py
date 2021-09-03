@@ -6,7 +6,7 @@ import time as tm
 
 client = commands.Bot(command_prefix = '.')
 day = datetime.datetime.today()
-time = datetime.datetime.now().strftime("%H:%M")
+
 
 
 @client.event
