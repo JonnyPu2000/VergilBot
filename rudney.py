@@ -19,13 +19,13 @@ async def on_ready():
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    while time != "19:26":
+    while time != "19:28":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
             sleep(2)
 
-    if day.weekday() == 4 and time == "19:26":
-        await channel.send(file = File("/assets/criaSexta.mp4"))
-        await channel.send(file = File("/assets/shrekSexta.mp4"))
+    if day.weekday() == 4 and time == "19:28":
+        await channel.send(file = File("./Assets/criaSexta.mp4"))
+        await channel.send(file = File("./Assets/shrekSexta.mp4"))
 
 client.run(os.environ['DISCORD_TOKEN'])
