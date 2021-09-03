@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import datetime
 import os
-import time
+import time as tm
 
 client = commands.Bot(command_prefix = '.')
 day = datetime.datetime.today()
@@ -16,8 +16,10 @@ async def on_ready():
     for i in range(0,60):
         print(time)
         time = datetime.datetime.now().strftime("%H:%M")
-        time.sleep(1)
-    if day.weekday() == 4 and time == "12:53":
+        tm.sleep(1)
+        if time == "12:55":
+            break
+    if day.weekday() == 4 and time == "12:55":
         await channel.send("https://www.youtube.com/watch?v=pCTSdupScwA")
         await channel.send("https://www.youtube.com/watch?v=8GX9--xhf_A")
 
