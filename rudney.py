@@ -22,15 +22,15 @@ async def on_ready():
     time = datetime.datetime.now().strftime("%H:%M:%S")
 
     while True:
-            print(time)
             time = datetime.datetime.now().strftime("%H:%M:%S")
+            print(time)
             sleep(1)
 
             if day.weekday() == 4 and time == "20:53:00":
                         embed = Embed(title = "É Sexta Feira Meus Bacanos!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
                         await channel.send(embed = embed)
-                        await channel.send("https://www.youtube.com/watch?v=pCTSdupScwA")
-                        await channel.send("https://www.youtube.com/watch?v=8GX9--xhf_A")
+                        await channel.send(file = File("./Assets/criaSexta.mp4"))
+                        await channel.send(file = File("./Assets/shrekSexta.mp4"))
         
 
 
