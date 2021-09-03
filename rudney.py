@@ -17,15 +17,15 @@ async def on_ready():
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    while time != "19:02":
+    while time != "19:04":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
             sleep(2)
 
-    if day.weekday() == 4 and time == "19:02":
+    if day.weekday() == 4 and time == "19:04":
         embedVar = discord.Embed(title="Sexta dos CRIA", description="É sexta feira meus bacanos!!!", color=0x00ff00)
         embedVar.add_field(name="Sexta dos cria", value="https://www.youtube.com/watch?v=pCTSdupScwA", inline=False)
         embedVar.add_field(name="Sherekão", value="https://www.youtube.com/watch?v=HJY9dnDLgEQ", inline=False)
-        await message.channel.send(embed=embedVar)
+        await channel.send(embed=embedVar)
 
 client.run(os.environ['DISCORD_TOKEN'])
