@@ -21,16 +21,17 @@ async def on_ready():
     channel = client.get_channel(645698417544265769)
     time = datetime.datetime.now().strftime("%H:%M")
 
-    while time != "19:46":
+    while time != "19:48":
             print(time)
             time = datetime.datetime.now().strftime("%H:%M")
             sleep(2)
 
-    if day.weekday() == 4 and time == "19:46":
+    if day.weekday() == 4 and time == "19:48":
         embed = Embed(title = "É Sexta Feira Meus Bacanos!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
         await channel.send(embed = embed)
-        await channel.send(File("./Assets/shrekSexta.mp4"))
         await channel.send(File("./Assets/criaSexta.mp4"))
+        await channel.send(File("./Assets/shrekSexta.mp4"))
+        
 
 
 client.run(os.environ['DISCORD_TOKEN'])
