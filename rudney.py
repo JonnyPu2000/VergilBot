@@ -10,8 +10,6 @@ from time import sleep
 
 
 client = commands.Bot(command_prefix = '.')
-day = datetime.datetime.today()
-        
 
 @client.event
 async def on_ready():
@@ -22,7 +20,9 @@ async def on_ready():
     time = datetime.datetime.now().strftime("%H:%M:%S")
 
     while True:
+        
             time = datetime.datetime.now().strftime("%H:%M:%S")
+            day = datetime.datetime.today()
             print(time)
             sleep(1)
 
