@@ -26,7 +26,7 @@ async def on_ready():
             print(time)
             sleep(1)
 
-            if day.weekday() == 0 and time == "16:21:00":
+            if day.weekday() == 0 and time == "15:00:00":
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
 
             if day.weekday() == 4 and time == "15:00:00":
