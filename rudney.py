@@ -17,6 +17,7 @@ async def on_ready():
 
 
     channel = client.get_channel(645698417544265769)
+    musicChannel = client.get_channel(645724669839671297)
     time = datetime.datetime.now().strftime("%H:%M:%S")
 
     while True:
@@ -28,6 +29,7 @@ async def on_ready():
 
             if time == "03:00:00":
                 await channel.send("macacoOleo.mp4")
+                await musicChannel.send("!p https://www.youtube.com/watch?v=Csdg0lQhA5I")
 
             #Segunda Feira
             if day.weekday() == 0 and time == "11:00:00":
