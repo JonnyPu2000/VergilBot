@@ -26,6 +26,9 @@ async def on_ready():
             print(time)
             sleep(1)
 
+            if time == "03:00:00":
+                await channel.send("macacoOleo.mp4")
+
             #Segunda Feira
             if day.weekday() == 0 and time == "11:00:00":
                 embed = Embed(title = "VAMO TRABALHAR BANDO DE VAGABUNDO",description = "CADE MINHAS CAPIVARINHAS???",colour = colour.Colour.blue())
