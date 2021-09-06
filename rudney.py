@@ -26,7 +26,10 @@ async def on_ready():
             print(time)
             sleep(1)
 
-            if day.weekday() == 0 and time == "15:00:00":
+            if day.weekday() == 0 and time == "16:30:00":
+                embed = Embed(title = "VAMO TRABALHAR BANDO DE VAGABUNDO",description = "CADE MINHAS CAPIVARINHAS???",colour = colour.Colour.blue())
+                embed.set_image(url = "https://c.tenor.com/K3uxrqffdCAAAAAC/capybara-orange.gif")
+                embed.set_footer(text= "Crias do Xamil", icon_url= "https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
 
             if day.weekday() == 4 and time == "15:00:00":
