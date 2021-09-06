@@ -26,8 +26,11 @@ async def on_ready():
             print(time)
             sleep(1)
 
+            if day.weekday() == 6 and time == "15:00:00":
+                await channel.send(file = File("./Assets/capivarinhas.mp4"))
+
             if day.weekday() == 4 and time == "15:00:00":
-                        print("foi")
+    
                         embed = Embed(title = "É SEXTA FEIRA MEUS BACANOS!",description = "SEXTA DOS CRIA PORRA",colour = colour.Colour.red())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url="https://c.tenor.com/J5O9kElWluYAAAAC/mucalol-smurfdomuca-muca-muquinha-dan%C3%A7ando-dan%C3%A7a-dancing-macaco-macacolol.gif")
