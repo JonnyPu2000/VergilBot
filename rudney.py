@@ -17,7 +17,9 @@ async def on_ready():
 
 
     channel = client.get_channel(645698417544265769)
-    
+    testChannel = client.get_channel(883328580455637045)
+
+
     time = datetime.datetime.now().strftime("%H:%M:%S")
 
     while True:
@@ -41,14 +43,24 @@ async def on_ready():
                 await channel.send(embed = embed)
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
             
-            #Sexta
+            #Terça
             if day.weekday() == 1 and time == "15:00:00":
     
                         embed = Embed(title = "É TERÇA FEIRA MEUS BACANOS!",description = "TERÇA DOS CRIA PORRA",colour = colour.Colour.red())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
-                        embed.set_image(url="https://tenor.com/view/gabriel-monteiro-gabriel-monteiro-gif-20692555")
+                        embed.set_image(url="https://c.tenor.com/49dE7BLNWy4AAAAd/gabriel-monteiro-gabriel.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/criaTerca.mp4"))
+            
+            #Quarta
+            if day.weekday() == 1 and time == "21:01:00":
+    
+                        embed = Embed(title = "É QUARTA FEIRA MEUS BACANOS!",description = "",colour = colour.Colour.red())
+                        embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_image(url="https://pbs.twimg.com/media/DtE-6PmXQAEwLQR.jpg")
+                        embed.set_image(url = "https://media.discordapp.net/attachments/837207335453458432/843647622165692426/TURKEY.gif")
+                        await testChannel.send(embed = embed)
+                        await testChannel.send(file = File("./Assets/quartaXeira.mp4"))
             
 
             #Sexta
