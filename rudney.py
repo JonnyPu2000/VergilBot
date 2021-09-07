@@ -32,9 +32,6 @@ async def on_ready():
             if time == "03:00:00":
                 await channel.send(file = File("./Assets/macacoOleo.mp4"))
 
-            
-                
-
             #Segunda Feira
             if day.weekday() == 0 and time == "11:00:00":
                 embed = Embed(title = "VAMO TRABALHAR BANDO DE VAGABUNDO",description = "CADE MINHAS CAPIVARINHAS???",colour = colour.Colour.blue())
@@ -53,7 +50,7 @@ async def on_ready():
                         await channel.send(file = File("./Assets/criaTerca.mp4"))
             
             #Quarta
-            if day.weekday() == 1 and time == "22:02:00":
+            if day.weekday() == 1 and time == "22:10:00":
     
                         embed = Embed(title = "É QUARTA FEIRA MEUS BACANOS!",description = "QUASE LA MEUS COLEGAS",colour = colour.Colour.red())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
