@@ -27,8 +27,8 @@ async def on_ready():
             print(time)
             sleep(1)
 
-            if time == "03:03:00":
-                await channel.send("./Assets/macacoOleo.mp4")
+            if time == "03:05:00":
+                await channel.send(file = File("./Assets/macacoOleo.mp4"))
                 await musicChannel.send("!p https://www.youtube.com/watch?v=Csdg0lQhA5I")
 
             #Segunda Feira
