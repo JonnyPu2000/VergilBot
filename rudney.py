@@ -29,6 +29,8 @@ async def on_ready():
 
             if time == "03:00:00":
                 await channel.send(file = File("./Assets/macacoOleo.mp4"))
+
+            
                 
 
             #Segunda Feira
@@ -38,6 +40,15 @@ async def on_ready():
                 embed.set_footer(text= "Crias do Xamil", icon_url= "https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                 await channel.send(embed = embed)
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
+            
+            #Sexta
+            if day.weekday() == 1 and time == "15:00:00":
+    
+                        embed = Embed(title = "É TERÇA FEIRA MEUS BACANOS!",description = "TERÇA DOS CRIA PORRA",colour = colour.Colour.red())
+                        embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_image(url="https://tenor.com/view/gabriel-monteiro-gabriel-monteiro-gif-20692555")
+                        await channel.send(embed = embed)
+                        await channel.send(file = File("./Assets/criaTerca.mp4"))
             
 
             #Sexta
