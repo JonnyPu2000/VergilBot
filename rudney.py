@@ -53,9 +53,9 @@ async def on_ready():
                         await channel.send(file = File("./Assets/criaTerca.mp4"))
             
             #Quarta
-            if day.weekday() == 1 and time == "21:01:00":
+            if day.weekday() == 1 and time == "22:02:00":
     
-                        embed = Embed(title = "É QUARTA FEIRA MEUS BACANOS!",description = "",colour = colour.Colour.red())
+                        embed = Embed(title = "É QUARTA FEIRA MEUS BACANOS!",description = "QUASE LA MEUS COLEGAS",colour = colour.Colour.red())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url="https://pbs.twimg.com/media/DtE-6PmXQAEwLQR.jpg")
                         embed.set_image(url = "https://media.discordapp.net/attachments/837207335453458432/843647622165692426/TURKEY.gif")
