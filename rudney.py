@@ -13,15 +13,21 @@ client = commands.Bot(command_prefix = '.')
 
 @client.event
 async def on_ready():
-    print("Inicializado")
 
 
     channel = client.get_channel(645698417544265769)
     testChannel = client.get_channel(883328580455637045)
+    print("Inicializado")
+    
+
+    
+
+
+   
 
 
     time = datetime.datetime.now().strftime("%H:%M:%S")
-
+    
     while True:
         
             time = datetime.datetime.now().strftime("%H:%M:%S")
@@ -59,9 +65,10 @@ async def on_ready():
                         await channel.send(file = File("./Assets/quartaXeira.mp4"))
 
             #Quinta
-            if day.weekday() == 2 and time == "19:27:00":
+            if day.weekday() == 2 and time == "15:00:00":
     
                         embed = Embed(title = "SIGMA FEIRA",description = "ASTROTRILLIONAIRE GRINDSET",colour = colour.Colour.dark_grey())
+                        embed.set_thumbnail(url= "https://media1.giphy.com/media/t9lBEE2FGMzbY9s5IX/giphy.gif?cid=ecf05e47dq4kzvsg08scf1gj3pfxqm227dg07doiumgickeo&rid=giphy.gif&ct=g")
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url = "https://c.tenor.com/Q823-830Ri0AAAAd/christian-bale-american-psycho.gif")
                         await testChannel.send(embed = embed)
@@ -76,9 +83,9 @@ async def on_ready():
                         embed.set_image(url="https://c.tenor.com/J5O9kElWluYAAAAC/mucalol-smurfdomuca-muca-muquinha-dan%C3%A7ando-dan%C3%A7a-dancing-macaco-macacolol.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/criaSexta.mp4"))
-                        await channel.send(file = File("./Assets/shrekSexta.mp4"))
+                        await channel.send(file = File("./Assets/shrekSexta.mp4")) 
         
 
 
-client.run(os.environ['DISCORD_TOKEN'])
-#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+#client.run(os.environ['DISCORD_TOKEN'])
+client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
