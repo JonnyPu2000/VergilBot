@@ -65,7 +65,7 @@ async def on_ready():
                         await channel.send(file = File("./Assets/quartaXeira.mp4"))
 
             #Quinta
-            if day.weekday() == 2 and time == "15:00:00":
+            if day.weekday() == 3 and time == "15:00:00":
     
                         embed = Embed(title = "SIGMA FEIRA",description = "ASTROTRILLIONAIRE GRINDSET",colour = colour.Colour.dark_grey())
                         embed.set_thumbnail(url= "https://media1.giphy.com/media/t9lBEE2FGMzbY9s5IX/giphy.gif?cid=ecf05e47dq4kzvsg08scf1gj3pfxqm227dg07doiumgickeo&rid=giphy.gif&ct=g")
