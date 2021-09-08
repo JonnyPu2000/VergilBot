@@ -50,13 +50,13 @@ async def on_ready():
                         await channel.send(file = File("./Assets/criaTerca.mp4"))
             
             #Quarta
-            if day.weekday() == 2 and time == "15:00:00":
+            if day.weekday() == 2 and time == "15:03:00":
     
                         embed = Embed(title = "É QUARTA FEIRA MEUS BACANOS!",description = "QUASE LÁ",colour = colour.Colour.dark_purple())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url = "https://media.discordapp.net/attachments/837207335453458432/843647622165692426/TURKEY.gif")
-                        await testChannel.send(embed = embed)
-                        await testChannel.send(file = File("./Assets/quartaXeira.mp4"))
+                        await channel.send(embed = embed)
+                        await channel.send(file = File("./Assets/quartaXeira.mp4"))
             
 
             #Sexta
