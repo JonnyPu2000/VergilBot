@@ -59,9 +59,9 @@ async def on_ready():
                         await channel.send(file = File("./Assets/quartaXeira.mp4"))
 
             #Quinta
-            if day.weekday() == 2 and time == "19:25:00":
+            if day.weekday() == 2 and time == "19:27:00":
     
-                        embed = Embed(title = "SIGMA FEIRA",description = "ASTROTRILLIONAIRE GRINDSET",colour = colour.Colour.black())
+                        embed = Embed(title = "SIGMA FEIRA",description = "ASTROTRILLIONAIRE GRINDSET",colour = colour.Colour.dark_grey())
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url = "https://c.tenor.com/Q823-830Ri0AAAAd/christian-bale-american-psycho.gif")
                         await testChannel.send(embed = embed)
