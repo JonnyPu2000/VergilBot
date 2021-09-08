@@ -57,6 +57,15 @@ async def on_ready():
                         embed.set_image(url = "https://media.discordapp.net/attachments/837207335453458432/843647622165692426/TURKEY.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/quartaXeira.mp4"))
+
+            #Quinta
+            if day.weekday() == 2 and time == "19:23:00":
+    
+                        embed = Embed(title = "SIGMA FEIRA",description = "ASTROTRILLIONAIRE GRINDSET",colour = colour.Colour.dark_black())
+                        embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_image(url = "https://c.tenor.com/Q823-830Ri0AAAAd/christian-bale-american-psycho.gif")
+                        await channel.send(embed = embed)
+                        await channel.send(file = File("./Assets/sigmaMale.mp4"))
             
 
             #Sexta
