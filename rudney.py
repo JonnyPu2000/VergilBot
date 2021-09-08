@@ -18,14 +18,6 @@ async def on_ready():
     channel = client.get_channel(645698417544265769)
     testChannel = client.get_channel(883328580455637045)
     print("Inicializado")
-    
-
-    
-
-
-   
-
-
     time = datetime.datetime.now().strftime("%H:%M:%S")
     
     while True:
@@ -71,8 +63,8 @@ async def on_ready():
                         embed.set_thumbnail(url= "https://media1.giphy.com/media/t9lBEE2FGMzbY9s5IX/giphy.gif?cid=ecf05e47dq4kzvsg08scf1gj3pfxqm227dg07doiumgickeo&rid=giphy.gif&ct=g")
                         embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_image(url = "https://c.tenor.com/Q823-830Ri0AAAAd/christian-bale-american-psycho.gif")
-                        await testChannel.send(embed = embed)
-                        await testChannel.send(file = File("./Assets/sigmaMale.mp4"))
+                        await channel.send(embed = embed)
+                        await channel.send(file = File("./Assets/sigmaMale.mp4"))
             
 
             #Sexta
@@ -84,8 +76,21 @@ async def on_ready():
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/criaSexta.mp4"))
                         await channel.send(file = File("./Assets/shrekSexta.mp4")) 
+
+            #Sábado
+            if day.weekday() == 5 and time == "15:00:00":
+        
+                        embed = Embed(title = "SABADO FEMBOY",description = "SÓ AS GOSTOSAS",colour = colour.Colour.red())
+                        embed.set_footer(text= "XAMIL FEMBOY",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_image(url="https://c.tenor.com/7kyzvgcZg6gAAAAd/f1nn5ter-rose.gif")
+                        embed.set_thumbnail(url="https://c.tenor.com/N2W5LJ4SdMEAAAAC/muah-kisses.gif")
+                        await channel.send(embed = embed)
+                        await channel.send(file = File("./Assets/ZeroTwo.mp4"))
+                       
+
+                
         
 
 
-#client.run(os.environ['DISCORD_TOKEN'])
-client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+client.run(os.environ['DISCORD_TOKEN'])
+#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
