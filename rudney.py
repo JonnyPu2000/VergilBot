@@ -14,6 +14,8 @@ client = commands.Bot(command_prefix = '.')
 @client.event
 async def on_ready():
 
+  
+
 
     channel = client.get_channel(645698417544265769)
     testChannel = client.get_channel(883328580455637045)
@@ -41,11 +43,12 @@ async def on_ready():
             #Terça
             if day.weekday() == 1 and time == "15:00:00":
     
-                        embed = Embed(title = "É TERÇA FEIRA MEUS BACANOS!",description = "TERÇA DOS CRIA PORRA",colour = colour.Colour.red())
-                        embed.set_footer(text= "É OS CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
-                        embed.set_image(url="https://c.tenor.com/49dE7BLNWy4AAAAd/gabriel-monteiro-gabriel.gif")
+                        embed = Embed(title = "É MAMACO-FEIRA MEUS BACANOS!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
+                        embed.set_footer(text= "XAMIL MAMACO",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_thumbnail(url="https://c.tenor.com/bB0vUlhGjygAAAAS/monkey-drinking.gif")
+                        embed.set_image(url= "https://c.tenor.com/sRi4JysBEmUAAAAS/monkiflip-monki.gif")
                         await channel.send(embed = embed)
-                        await channel.send(file = File("./Assets/criaTerca.mp4"))
+                        await channel.send(file = File("./Assets/monkeTerca.mp4"))
             
             #Quarta
             if day.weekday() == 2 and time == "15:00:00":
@@ -92,5 +95,5 @@ async def on_ready():
         
 
 
-client.run(os.environ['DISCORD_TOKEN'])
-#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+#client.run(os.environ['DISCORD_TOKEN'])
+client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
