@@ -9,6 +9,7 @@ import datetime
 import os
 from time import sleep
 import sched, time
+import random
 
 
 client = commands.Bot(command_prefix = '!')
@@ -106,7 +107,13 @@ async def mandaDia():
 
 @client.command()
 async def rock(ctx):
-    await ctx.send(file = File("./Assets/theRock.mp4"))  
+    rand = random.randint(0,1)
+
+    if rand == 0:
+        await ctx.send(file = File("./Assets/theRock.mp4"))
+
+    if rand == 1:
+        await ctx.send(file = File("./Assets/theRock2.mp4"))    
     
 client.run(os.environ['DISCORD_TOKEN'])
 #client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
