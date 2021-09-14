@@ -50,7 +50,7 @@ async def mandaDia():
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
             
     #Terça
-    if day.weekday() == 1 and hora == "15:07:00":
+    if day.weekday() == 1 and hora == "15:09:00":
     
                         embed = Embed(title = "É MAMACO-FEIRA MEUS BACANOS!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
                         embed.set_footer(text= "XAMIL MAMACO",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
