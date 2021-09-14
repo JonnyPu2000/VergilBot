@@ -11,6 +11,7 @@ import sched, time
 
 
 client = commands.Bot(command_prefix = '!')
+channel = client.get_channel('645698417544265769')
 
 
 
@@ -35,7 +36,7 @@ async def mandaDia():
     day = datetime.datetime.today()
     print(hora)
 
-    channel = client.get_channel('645698417544265769')
+    
 
     if hora == "03:00:00":
         await channel.send(file = File("./Assets/macacoOleo.mp4"))
@@ -49,7 +50,7 @@ async def mandaDia():
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
             
     #Terça
-    if day.weekday() == 1 and hora == "15:00:00":
+    if day.weekday() == 1 and hora == "15:05:00":
     
                         embed = Embed(title = "É MAMACO-FEIRA MEUS BACANOS!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
                         embed.set_footer(text= "XAMIL MAMACO",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
