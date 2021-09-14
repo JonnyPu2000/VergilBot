@@ -11,16 +11,13 @@ from time import sleep
 
 client = commands.Bot(command_prefix = '.')
 
-@client.command()
-async def rock(ctx):
-    await ctx.send("The Rock")
+
 
 @client.event
 async def on_ready():
-
+    print("Inicializado")
     channel = client.get_channel(645698417544265769)
     testChannel = client.get_channel(883328580455637045)
-    print("Inicializado")
     time = datetime.datetime.now().strftime("%H:%M:%S")
     
     while True:
@@ -90,8 +87,11 @@ async def on_ready():
                         embed.set_thumbnail(url="https://c.tenor.com/N2W5LJ4SdMEAAAAC/muah-kisses.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/ZeroTwo.mp4"))
-        
-                
+    
+
+
+     
+           
 
 #client.run(os.environ['DISCORD_TOKEN'])
 client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
