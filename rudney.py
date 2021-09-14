@@ -9,13 +9,10 @@ import os
 from time import sleep
 
 
-client = commands.Bot(command_prefix = '.')
+client = commands.Bot(command_prefix = '$')
 
 @client.event
 async def on_ready():
-
-  
-
 
     channel = client.get_channel(645698417544265769)
     testChannel = client.get_channel(883328580455637045)
@@ -90,15 +87,10 @@ async def on_ready():
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/ZeroTwo.mp4"))
 
-@client.command()
+@commands.command()
 async def rock(ctx):
-    await ctx.send(file = File("./Assets/theRock.mp4"))
-
-
-
-                
-        
-
+        await ctx.send(file = File("./Assets/theRock.mp4"))
+    
 
 #client.run(os.environ['DISCORD_TOKEN'])
 client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
