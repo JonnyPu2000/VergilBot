@@ -13,7 +13,7 @@ client = commands.Bot(command_prefix = '.')
 
 @client.command()
 async def rock(ctx):
-    await client.send("The Rock")
+    await ctx.send("The Rock")
 
 @client.event
 async def on_ready():
