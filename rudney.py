@@ -37,7 +37,7 @@ async def mandaDia():
 
     await client.wait_until_ready()
 
-    channel = client.get_channel(883328580455637045)
+    channel = client.get_channel(645698417544265769)
 
     hora = datetime.datetime.now().strftime("%H:%M:%S")
     day = datetime.datetime.today()
