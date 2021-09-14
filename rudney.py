@@ -9,7 +9,11 @@ import os
 from time import sleep
 
 
-client = commands.Bot(command_prefix = '$')
+client = commands.Bot(command_prefix = '.')
+
+@client.command()
+async def rock(ctx):
+    await client.send("The Rock")
 
 @client.event
 async def on_ready():
@@ -86,10 +90,7 @@ async def on_ready():
                         embed.set_thumbnail(url="https://c.tenor.com/N2W5LJ4SdMEAAAAC/muah-kisses.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/ZeroTwo.mp4"))
-
-@client.command()
-async def test(ctx,arg):
-    await ctx.send(arg)           
+        
                 
 
 #client.run(os.environ['DISCORD_TOKEN'])
