@@ -89,7 +89,12 @@ async def on_ready():
                         embed.set_thumbnail(url="https://c.tenor.com/N2W5LJ4SdMEAAAAC/muah-kisses.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/ZeroTwo.mp4"))
-                       
+
+@client.command()
+async def rock(ctx):
+    await ctx.send(file = File("./Assets/theRock.mp4"))
+
+
 
                 
         
