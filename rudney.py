@@ -2,6 +2,7 @@ import discord
 from discord import File, Embed
 from discord import message
 from discord import colour
+from discord import channel
 from discord.embeds import Embed
 from discord.ext import commands, tasks
 import datetime
@@ -11,13 +12,13 @@ import sched, time
 
 
 client = commands.Bot(command_prefix = '!')
-channel = client.get_channel(645698417544265769)
+
 
 
 
 @client.event
 async def on_ready():
-
+    
     print("Inicializado")
 
 @client.command()
@@ -31,6 +32,8 @@ async def start(ctx,enabled = "start",interval = 1,message = ""):
 
 @tasks.loop(seconds = 1)
 async def mandaDia():
+
+    int(channel) = client.get_channel(645698417544265769)
 
     hora = datetime.datetime.now().strftime("%H:%M:%S")
     day = datetime.datetime.today()
@@ -50,7 +53,7 @@ async def mandaDia():
                 await channel.send(file = File("./Assets/capivarinhas.mp4"))
             
     #Terça
-    if day.weekday() == 1 and hora == "15:09:00":
+    if day.weekday() == 1 and hora == "15:17:00":
     
                         embed = Embed(title = "É MAMACO-FEIRA MEUS BACANOS!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
                         embed.set_footer(text= "XAMIL MAMACO",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
