@@ -108,5 +108,5 @@ async def mandaDia():
 async def rock(ctx):
     await ctx.send(file = File("./Assets/theRock.mp4"))  
     
-#client.run(os.environ['DISCORD_TOKEN'])
-client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+client.run(os.environ['DISCORD_TOKEN'])
+#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
