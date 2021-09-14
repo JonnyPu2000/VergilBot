@@ -87,10 +87,10 @@ async def on_ready():
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/ZeroTwo.mp4"))
 
-@commands.command()
-async def rock(ctx):
-        await ctx.send(file = File("./Assets/theRock.mp4"))
-    
+@client.command()
+async def test(ctx,arg):
+    await ctx.send(arg)           
+                
 
 #client.run(os.environ['DISCORD_TOKEN'])
 client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
