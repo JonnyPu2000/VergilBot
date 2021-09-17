@@ -113,7 +113,11 @@ async def rock(ctx):
         await ctx.send(file = File("./Assets/theRock.mp4"))
 
     if rand == 1:
-        await ctx.send(file = File("./Assets/theRock2.mp4"))    
+        await ctx.send(file = File("./Assets/theRock2.mp4"))
+
+@client.command()
+async def comedia(ctx):
+    await ctx.send(file = File(".Assets/MestreDaComedia.mp4"))   
     
 client.run(os.environ['DISCORD_TOKEN'])
 #client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
