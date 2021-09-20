@@ -8,7 +8,6 @@ from discord.ext import commands, tasks
 import datetime
 import os
 from time import sleep
-import sched, time
 import random
 
 
@@ -18,6 +17,10 @@ client = commands.Bot(command_prefix = '&')
 async def on_ready():
     
     print("Inicializado")
+
+@client.command()
+async def balls(ctx):
+    await ctx.send(file = File('balls.mp4'))
 
 
 @client.command()
