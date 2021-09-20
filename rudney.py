@@ -20,7 +20,7 @@ async def on_ready():
 
 @client.command()
 async def balls(ctx):
-    await ctx.send(file = File('balls.mp4'))
+    await ctx.send(file = File('./Assets/balls.mp4'))
 
 
 @client.command()
