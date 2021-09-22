@@ -22,6 +22,10 @@ async def on_ready():
 async def balls(ctx):
     await ctx.send(file = File('./Assets/balls.mp4'))
 
+@client.command()
+async def sigma(ctx):
+    await ctx.send(file = File('./Assets/sigma.mp4'))
+
 
 @client.command()
 async def start(ctx,enabled = "start",interval = 1,message = ""):
