@@ -28,6 +28,11 @@ async def sigma(ctx):
 
 
 @client.command()
+async def tv(ctx):
+    await ctx.send(file = File('./Assets/television.mp4'))
+
+
+@client.command()
 async def start(ctx,enabled = "start",interval = 1,message = ""):
     if enabled.lower() == "stop":
         mandaDia.stop()
