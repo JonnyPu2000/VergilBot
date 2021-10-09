@@ -26,6 +26,10 @@ async def balls(ctx):
 async def sigma(ctx):
     await ctx.send(file = File('./Assets/sigma.mp4'))
 
+@client.command()
+async def foto(ctx):
+    await ctx.send(file = File('./Assets/foto.mp4'))
+
 
 @client.command()
 async def tv(ctx):
