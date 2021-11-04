@@ -10,7 +10,7 @@ import os
 from time import sleep
 import random
 
-#Teste
+#Teste2s
 client = commands.Bot(command_prefix = '%')
 
 @client.event
@@ -71,7 +71,7 @@ async def mandaDia():
     if day.weekday() == 1 and hora == "15:00:00":
     
                         embed = Embed(title = "É MAMACO-FEIRA MEUS BACANOS!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
-                        embed.set_footer(text= "XAMIL MAMACO",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                        embed.set_footer(text= "XAMIL MAMACOs",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_thumbnail(url="https://c.tenor.com/bB0vUlhGjygAAAAS/monkey-drinking.gif")
                         embed.set_image(url= "https://c.tenor.com/sRi4JysBEmUAAAAS/monkiflip-monki.gif")
                         await channel.send(embed = embed)
