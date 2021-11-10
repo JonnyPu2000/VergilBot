@@ -129,7 +129,11 @@ async def rock(ctx):
 
 @client.command()
 async def comedia(ctx):
-    await ctx.send(file = File("./Assets/MestreDaComedia.mp4"))   
+    await ctx.send(file = File("./Assets/MestreDaComedia.mp4")) 
+
+@client.command()
+async def omg(ctx):
+    await ctx.send(file = File("./Assets/omg.mp4"))   
     
 client.run(os.environ['DISCORD_TOKEN'])
 #client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
