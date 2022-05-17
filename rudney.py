@@ -10,7 +10,7 @@ import os
 from time import sleep
 import random
 
-#Teste2s
+#Teste2ss
 client = commands.Bot(command_prefix = '%')
 
 @client.event
