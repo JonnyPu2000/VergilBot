@@ -9,6 +9,8 @@ import datetime
 import os
 from time import sleep
 import random
+from discord import FFmpegPCMAudio
+from asyncio import sleep
 
 #Teste2ss
 client = commands.Bot(command_prefix = '%')
@@ -136,8 +138,58 @@ async def omg(ctx):
     await ctx.send(file = File("./Assets/omg.mp4"))   
 
 @client.command()
-async def omg(ctx):
+async def sam(ctx):
     await ctx.send(file = File("./Assets/there will be blood shed.mp4"))   
-    
-client.run(os.environ['DISCORD_TOKEN'])
-#client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+
+@client.command()
+async def dmc(ctx):
+    await ctx.send(file = File("./Assets/vergil.mp4"))
+
+@client.command()
+async def standinghere(ctx):
+    await ctx.send(file = File("./Assets/bracoforte.mp4"))
+
+@client.command()
+async def saul(ctx):
+    rand = random.randint(0,1)
+
+    if rand == 0:
+        await ctx.send(file = File("./Assets/saul 8bits.mp4"))
+
+    if rand == 1:
+        await ctx.send(file = File("./Assets/Saul goodman 3d.mp4"))      
+
+@client.command(pass_context=True)
+async def join(ctx):
+    if(ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        await channel.connect()
+    else:
+        await ctx.send("Você não está em um canal de voz, burro!")
+
+
+@client.command(pass_context=True)
+async def leave(ctx):
+    if(ctx.voice_client):
+        await ctx.guild.voice_client.disconnect()
+        await ctx.send("Sai do canal")
+    else:
+        await ctx.send("Eu não tô em um canal de voz, burro!")
+
+@client.command()
+async def faro(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/faro.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()
+        
+
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+
+client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
