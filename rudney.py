@@ -185,11 +185,24 @@ async def faro(ctx):
         player = voice.play(source)
         while voice.is_playing():
             await sleep(1)
-        await voice.disconnect()
-        
-
+        await voice.disconnect()      
     else:
         await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def faro(ctx, arg):
+    for x in ctx.guild.channels:
+        if (x.name == arg):
+            channel = x
+            voice = await channel.connect()
+            source = FFmpegPCMAudio('Assets/faro.mp3')
+            player = voice.play(source)
+            while voice.is_playing():
+                await sleep(1)
+            await voice.disconnect()
+            break
+    else:
+        await ctx.send("Não tem um canal de voz com esse nome o seu animal!")
 
 
 client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
