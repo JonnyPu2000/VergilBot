@@ -150,6 +150,10 @@ async def standinghere(ctx):
     await ctx.send(file = File("./Assets/bracoforte.mp4"))
 
 @client.command()
+async def fma(ctx):
+    await ctx.send(file = File("./Assets/fma.mp4"))
+
+@client.command()
 async def saul(ctx):
     rand = random.randint(0,1)
 
@@ -181,7 +185,7 @@ async def faro(ctx):
     if (ctx.author.voice):
         channel = ctx.message.author.voice.channel
         voice = await channel.connect()
-        source = FFmpegPCMAudio('Assets/faro.mp3')
+        source = FFmpegPCMAudio('Assets/audios/faro.mp3')
         player = voice.play(source)
         while voice.is_playing():
             await sleep(1)
@@ -190,19 +194,213 @@ async def faro(ctx):
         await ctx.send("Não ta num canal de voz o seu animal!")
 
 @client.command()
-async def faro(ctx, arg):
-    for x in ctx.guild.channels:
-        if (x.name == arg):
-            channel = x
-            voice = await channel.connect()
-            source = FFmpegPCMAudio('Assets/faro.mp3')
-            player = voice.play(source)
-            while voice.is_playing():
-                await sleep(1)
-            await voice.disconnect()
-            break
+async def cavalo(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/cavalo.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
     else:
-        await ctx.send("Não tem um canal de voz com esse nome o seu animal!")
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def iha(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/iha.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def danca(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/danca.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def leite(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/muito-leite.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def pare(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/pare.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def ph(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/ph.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def pressao(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/pressaoNenem.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def puta(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/puta.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def goofy(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/rodrigo-faro-sound.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def sla(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/sla.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def titio(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/titio.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def tome(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/tome.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def uepa(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/uepa.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def ui(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/ui-rodrigo-faro.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def elegosta(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/elegosta.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
+@client.command()
+async def queisso(ctx):
+    if (ctx.author.voice):
+        channel = ctx.message.author.voice.channel
+        voice = await channel.connect()
+        source = FFmpegPCMAudio('Assets/audios/que isso meu filho calma.mp3')
+        player = voice.play(source)
+        while voice.is_playing():
+            await sleep(1)
+        await voice.disconnect()      
+    else:
+        await ctx.send("Não ta num canal de voz o seu animal!")
+
 
 
 client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
