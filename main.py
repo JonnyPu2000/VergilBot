@@ -477,4 +477,4 @@ async def tv(ctx):
 
 
 
-client.run('ODgzMzI3OTUwMDgxMDk3NzI5.YTIVQg.chXPKvfzqCtgR_aBHixu9FJl3Wg')
+client.run('ODgzMzI3OTUwMDgxMDk3NzI5.GA6gAu.QwALoCyxHzTr-Zol0hFCFHBEzNavA840uZQ4JQ')
