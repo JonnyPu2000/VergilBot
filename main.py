@@ -116,7 +116,7 @@ async def mandaDia():
                         embed = Embed(title = "MAMACO FEIRA!",description = "UUUUUUUUUU AAAAAAA AAAAAAAAAAAA UUUUUU AAAAAAAA",colour = colour.Colour.dark_red())
                         embed.set_footer(text= "MAMACOS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
                         embed.set_thumbnail(url="https://c.tenor.com/bB0vUlhGjygAAAAS/monkey-drinking.gif")
-                        embed.set_image(url= "https://tenor.com/view/monki-monkey-monkeys-drip-swag-gif-20694900")
+                        embed.set_image(url= "https://tenor.com/view/monkey-artificialbloom-monkey-hulahoop-monkey-dancing-gif-23688613")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/videos_dia/monkeTerca.mp4"))
             
@@ -158,8 +158,8 @@ async def mandaDia():
         
                         embed = Embed(title = "SAUL SÁBADO",description = "Hi. I'm Saul Goodman. Did you know that you have rights? The Constitution says you do. And so do I. I believe that until proven guilty, every man, woman, and child in this country is innocent. And that's why I fight for you, Albuquerque! Better call Saul.",colour = colour.Colour.red())
                         embed.set_footer(text= "XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
-                        embed.set_image(url="https://tenor.com/view/better-call-saul-bob-odenkirk-saul-goodman-usa-united-states-of-america-gif-5322556")
-                        embed.set_thumbnail(url="https://tenor.com/view/saul-better-call-saul-call-saul-he-didnt-call-saul-wheelchair-saul-gif-25782666")
+                        embed.set_image(url="https://tenor.com/view/afham-saul-goodman-better-call-saul-bob-odenkirk-jimmy-mcgill-gif-25559831s")
+                        embed.set_thumbnail(url="https://tenor.com/view/better-ball-saul-better-call-saul-saul3d-saul-goodman3d-saul-ball-gif-25770284")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/videos_dia/saul.mp4"))
 
