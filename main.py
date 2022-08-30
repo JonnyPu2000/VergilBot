@@ -27,8 +27,9 @@ client = commands.Bot(command_prefix = '%')
 #Inicializando o Bot
 @client.event
 async def on_ready():
-    
+
     print("Inicializado")
+    mandaDia.start()
 
 
 #Inicializando o Relógio (contador)
@@ -81,7 +82,7 @@ async def play(ctx,link,chn = None):
 
 #Função de juntar dois videos, passando o link do video do youtube
 @client.command()
-async def vergil(ctx, link,x,y):
+async def vergil(ctx,link,x,y):
     await ctx.send("Vergilizando o seu vídeo, por favor aguarde!")
     #Removendo os caracteres especiais do link
     def remove_special_characters(title):
@@ -110,11 +111,12 @@ async def vergil(ctx, link,x,y):
         clips = [clip, clip2]
         ctx.send("Criando o clipe, por favor aguarde...")
         combined = concatenate_videoclips(clips, method= 'compose')
-        combined.write_videofile("videos/combined.mp4")
+        combined.write_videofile("videos/vergilStatus.mp4")
         os.system("pkill -f ffmpeg")
+        return title
 
     edit_video(link)
-    await ctx.send(file = File("videos/combined.mp4"))
+    await ctx.send(file = File("videos/vergilStatus.mp4"))
     shutil.rmtree("./videos")
     
         
@@ -129,7 +131,6 @@ async def mandaDia():
 
     hora = datetime.datetime.now().strftime("%H:%M:%S")
     day = datetime.datetime.today()
-    print(hora)
 
     if hora == "03:00:00":
         await channel.send(file = File("./Assets/videos_dia/macacoOleo.mp4"))
