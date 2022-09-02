@@ -1,5 +1,6 @@
 #Importando Bibliotecas
 
+import asyncio
 import discord
 from discord import File, Embed
 from discord import message
@@ -16,20 +17,77 @@ from asyncio import sleep
 from pytube import YouTube
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import shutil
-
-        
-
+import youtube_dl
 
 #Prefixo para comandoss
-client = commands.Bot(command_prefix = '%')
+intents = discord.Intents.all()
+intents.members = True
+client = commands.Bot(command_prefix = '!',intents= intents)
 
+voice_clients = {}
+
+yt_dl_opts = {'format' : 'bestaudio/best'}
+
+ytdl = youtube_dl.YoutubeDL(yt_dl_opts)
+
+ffmpeg_options = {'options' : "-vn"}
 
 #Inicializando o Bot
 @client.event
 async def on_ready():
-
     print("Inicializado")
     mandaDia.start()
+
+
+
+@client.command()
+async def play(ctx,url):
+
+    try:
+        voice_client = await ctx.message.author.voice.channel.connect()
+        voice_clients[voice_client.guild.id] = voice_client
+    except:
+        print("Error")
+
+
+    try:
+
+        loop = asyncio.get_event_loop()
+        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url,download = False))
+        song = data['url']
+        title = data.get('title',None)
+        await ctx.send("Tocando agora: " + title)  
+        player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
+        
+        voice_clients[ctx.guild.id].play(player)
+
+    except Exception as ex:
+        print(ex)
+    
+
+@client.command()
+async def pause(ctx):
+    server  = ctx.message.guild
+    voice_channel = server.voice_client
+    voice_channel.pause()
+    await ctx.send("Pausado!")
+
+@client.command()
+async def resume(ctx):
+    server  = ctx.message.guild
+    voice_channel = server.voice_client
+    voice_channel.resume()
+    await ctx.send("Resumido!")
+
+@client.command()
+async def stop(ctx):
+    server  = ctx.message.guild
+    voice_channel = server.voice_client
+    voice_channel.stop()
+    await ctx.send("Parei a música!")
+
+
+
 
 
 #Inicializando o Relógio (contador)
@@ -40,45 +98,10 @@ async def start(ctx,enabled = "start",interval = 1,message = ""):
     elif enabled.lower() == "start":
         mandaDia.change_interval(seconds= int(interval))
         mandaDia.start()
-    
 
 
-@client.command()
-async def play(ctx,link,chn = None):
-
-    def remove_special_characters(title):
-        new_title =  ''.join(char for char in title if char.isalnum()) #Removendo todos os caracteres especiais, deixando apenas as letras
-        return new_title
 
 
-    def download_yt(link):
-        video = YouTube(link)
-        title = remove_special_characters(video.title)
-        stream = video.streams.get_highest_resolution()
-        stream.download("audio/",filename= title + ".mp4")
-        ctx.send("Download realizado com sucesso!")
-        return title
-    
-    if(chn is not None):
-            channel = client.get_channel(int(chn))
-    else:
-            channel = ctx.message.author.voice.channel
-    title = download_yt(link)
-    
-    videoclip = VideoFileClip("audio/" + title + '.mp4')
-    audioclip = videoclip.audio
-    audioclip.write_audiofile("audio/" + title + '.mp3')
-
-
-    source = FFmpegPCMAudio("audio/" + title + ".mp3")
-
-    voice = await channel.connect()
-    player = voice.play(source)
-    while voice.is_playing():
-        await sleep(1)
-    await voice.disconnect()
-    os.system("pkill -f ffmpeg")
-    shutil.rmtree("./audio")
 
 #Função de juntar dois videos, passando o link do video do youtube
 @client.command()
