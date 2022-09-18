@@ -2,6 +2,7 @@
 
 import asyncio
 import discord
+import login
 from discord import File, Embed
 from discord import message
 from discord import colour
@@ -19,7 +20,7 @@ from moviepy.editor import VideoFileClip, concatenate_videoclips
 import shutil
 import youtube_dl
 
-#Prefixo para comandoss
+#Prefixo para comandos
 intents = discord.Intents.all()
 intents.members = True
 
@@ -557,4 +558,4 @@ async def tv(ctx):
 
 
 
-client.run('ODgzMzI3OTUwMDgxMDk3NzI5.GA6gAu.QwALoCyxHzTr-Zol0hFCFHBEzNavA840uZQ4JQ')
+client.run(login.DISCORD_TOKEN())
