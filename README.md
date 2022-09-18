@@ -37,7 +37,7 @@ https://user-images.githubusercontent.com/57176998/190881154-5035735d-1d3b-446f-
 O bot possui a função de enviar embeds temáticos conforme o dia e o horário.
 Exemplo:
 
-![image](https://user-images.githubusercontent.com/57176998/190881228-5411919b-a573-4bbb-be66-e107f4f3320a.png)
+![image](https://user-images.githubusercontent.com/57176998/190881398-d31a924c-a13c-42db-9af8-5fd506078224.png)
 
 Feito por João Paulo S. Pereira
 
