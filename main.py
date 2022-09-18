@@ -22,6 +22,7 @@ import youtube_dl
 #Prefixo para comandoss
 intents = discord.Intents.all()
 intents.members = True
+
 client = commands.Bot(command_prefix = '!',intents= intents)
 
 voice_clients = {}
