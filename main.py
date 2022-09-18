@@ -54,12 +54,22 @@ async def play(ctx,url):
 
         loop = asyncio.get_event_loop()
         data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url,download = False))
+        
         song = data['url']
         title = data.get('title',None)
-        await ctx.send("Tocando agora: " + title)  
+        image = data.get('thumbnail',None)
+
+        embed = Embed(title = "Now Playing: " + title,description = "Solicitado por: " + ctx.message.author.mention + "\n" + url,colour = colour.Colour.dark_purple())
+        embed.set_footer(text= "CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+        embed.set_image(url = image)
+
+        await ctx.send(embed = embed)
+        await ctx.message.delete()
+
         player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
         
         voice_clients[ctx.guild.id].play(player)
+        
 
     except Exception as ex:
         print(ex)
