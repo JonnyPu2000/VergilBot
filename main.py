@@ -1,6 +1,7 @@
 #Importando Bibliotecas
 
 import asyncio
+from urllib import request
 import discord
 import login
 from discord import File, Embed
@@ -39,42 +40,56 @@ ffmpeg_options = {'options' : "-vn"}
 async def on_ready():
     print("Inicializado")
     mandaDia.start()
-
-
+    
 
 @client.command()
-async def play(ctx,url):
+async def play(ctx,url = None):
 
     try:
         voice_client = await ctx.message.author.voice.channel.connect()
         voice_clients[voice_client.guild.id] = voice_client
     except:
-        print("Error")
+            print("Error")
 
-
-    try:
-
-        loop = asyncio.get_event_loop()
-        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url,download = False))
+    if (url is not None):
         
-        song = data['url']
-        title = data.get('title',None)
-        image = data.get('thumbnail',None)
+        try:
 
-        embed = Embed(title = "Now Playing: " + title,description = "Solicitado por: " + ctx.message.author.mention + "\n" + url,colour = colour.Colour.dark_purple())
-        embed.set_footer(text= "CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
-        embed.set_image(url = image)
+            loop = asyncio.get_event_loop()
+            data = await loop.run_in_executor(None, lambda: ytdl.extract_info(url,download = False))
+            
+            song = data['url']
+            title = data.get('title',None)
+            image = data.get('thumbnail',None)
 
-        await ctx.send(embed = embed)
-        await ctx.message.delete()
+            embed = Embed(title = "Now Playing: " + title,description = "Solicitado por: " + ctx.message.author.mention + "\n" + url,colour = colour.Colour.dark_purple())
+            embed.set_footer(text= "CRIAS DO XAMIL",icon_url="https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+            embed.set_image(url = image)
 
-        player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
-        
-        voice_clients[ctx.guild.id].play(player)
-        
+            await ctx.send(embed = embed)
+            await ctx.message.delete()
 
-    except Exception as ex:
-        print(ex)
+            player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
+            
+            voice_clients[ctx.guild.id].play(player)
+            
+
+        except Exception as ex:
+            print(ex)
+
+    if url is None: 
+        if len(ctx.message.attachments) > 0:       
+            for attachment in ctx.message.attachments:
+                await attachment.save(attachment.filename)
+    
+            player  =  discord.FFmpegPCMAudio(attachment.filename,**ffmpeg_options)
+            voice_clients[ctx.guild.id].play(player)
+            while voice_client.is_playing():
+                sleep(1)
+            os.remove(attachment.filename)
+                
+        else:
+            await ctx.send("Insira um áudio ou uma url de Video!")
     
 
 @client.command()
