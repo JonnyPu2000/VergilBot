@@ -1,7 +1,7 @@
 #Importando Bibliotecas
 
 import asyncio
-from urllib import request
+
 import discord
 import login
 from discord import File, Embed
@@ -44,7 +44,7 @@ async def on_ready():
 
 @client.command()
 async def play(ctx,url = None):
-
+    
     try:
         voice_client = await ctx.message.author.voice.channel.connect()
         voice_clients[voice_client.guild.id] = voice_client
@@ -71,25 +71,43 @@ async def play(ctx,url = None):
 
             player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
             
-            voice_clients[ctx.guild.id].play(player)
+            voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
+
+            while voice_clients[ctx.message.author.voice.channel.guild.id]:
+                sleep(1)
+            else:
+                await sleep(15)
+            while voice_clients[ctx.message.author.voice.channel.guild.id]:
+                break
+            else:
+                await voice_clients[ctx.message.author.voice.channel.guild.id].disconnect()
             
 
         except Exception as ex:
+            
             print(ex)
 
     if url is None: 
-        if len(ctx.message.attachments) > 0:       
+        if len(ctx.message.attachments) > 0:      
             for attachment in ctx.message.attachments:
                 await attachment.save(attachment.filename)
     
             player  =  discord.FFmpegPCMAudio(attachment.filename,**ffmpeg_options)
-            voice_clients[ctx.guild.id].play(player)
-            while voice_client.is_playing():
-                sleep(1)
-            os.remove(attachment.filename)
-                
+            voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
+
+            await ctx.message.delete()
+
+            while voice_clients[ctx.message.author.voice.channel.guild.id].is_playing():
+                await sleep(1)
+            else:
+                os.remove(attachment.filename)
+                await sleep(300)
+                await voice_clients[ctx.message.author.voice.channel.guild.id].disconnect()
+            
+
         else:
             await ctx.send("Insira um áudio ou uma url de Video!")
+      
     
 
 @client.command()
@@ -112,6 +130,8 @@ async def stop(ctx):
     voice_channel = server.voice_client
     voice_channel.stop()
     await ctx.send("Parei a música!")
+    await voice_channel.disconnect()
+
 
 
 
