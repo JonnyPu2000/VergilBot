@@ -1,6 +1,7 @@
 #Importando Bibliotecas
 
 import asyncio
+from codecs import Codec
 
 import discord
 import login
@@ -19,6 +20,7 @@ from asyncio import sleep
 from pytube import YouTube
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import shutil
+import ffmpeg
 import youtube_dl
 
 #Prefixo para comandos
@@ -39,7 +41,9 @@ ffmpeg_options = {'options' : "-vn"}
 @client.event
 async def on_ready():
     print("Inicializado")
-    mandaDia.start()
+    if not mandaDia.start():
+        mandaDia.start()
+    
     
 
 @client.command()
@@ -73,13 +77,11 @@ async def play(ctx,url = None):
             
             voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
 
-            while voice_clients[ctx.message.author.voice.channel.guild.id]:
-                sleep(1)
+            while voice_clients[ctx.message.author.voice.channel.guild.id].is_playing():
+                await sleep(1)
             else:
-                await sleep(15)
-            while voice_clients[ctx.message.author.voice.channel.guild.id]:
-                break
-            else:
+                os.remove(attachment.filename)
+                await sleep(300)
                 await voice_clients[ctx.message.author.voice.channel.guild.id].disconnect()
             
 
@@ -95,7 +97,6 @@ async def play(ctx,url = None):
             player  =  discord.FFmpegPCMAudio(attachment.filename,**ffmpeg_options)
             voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
 
-            await ctx.message.delete()
 
             while voice_clients[ctx.message.author.voice.channel.guild.id].is_playing():
                 await sleep(1)
@@ -188,6 +189,19 @@ async def vergil(ctx,link,x,y):
     edit_video(link)
     await ctx.send(file = File("videos/vergilStatus.mp4"))
     shutil.rmtree("./videos")
+
+    
+
+    
+
+
+    
+
+    
+    
+
+    
+    
     
         
 
