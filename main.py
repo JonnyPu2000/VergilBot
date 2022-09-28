@@ -1,8 +1,6 @@
 #Importando Bibliotecas
 
 import asyncio
-from codecs import Codec
-
 import discord
 import login
 from discord import File, Embed
@@ -190,37 +188,37 @@ async def vergil(ctx,link,x,y):
     await ctx.send(file = File("videos/vergilStatus.mp4"))
     shutil.rmtree("./videos")
 
-    
-
-    
-
-
-    
-
-    
-    
-
-    
-    
-    
-        
-
 
 @tasks.loop(seconds = 1)
 async def mandaDia():
+
+    
 
     await client.wait_until_ready()
 
     channel = client.get_channel(645698417544265769)
 
     hora = datetime.datetime.now().strftime("%H:%M:%S")
+    
+    print(hora)
+    day_month = datetime.datetime.now().strftime("%d/%m")
     day = datetime.datetime.today()
 
     if hora == "03:00:00":
         await channel.send(file = File("./Assets/videos_dia/macacoOleo.mp4"))
+        d = {}
+        with open('Aniversarios.txt') as f:
+            for line in f:
+                (key,val) = line.strip().split(',')
+                d[key] = val
 
-    if hora == "20:00:00":
-        await channel.send(file = File("./Assets/videos_dia/dezessete.mp4"))
+        for k,v in d.items():
+            if v.startswith(day_month):
+                embed = Embed(title = "Parabéns {}!".format(k),description= "Que seu novo ano seja repleto de vitórias e alegrias!\n",colour = colour.Colour.blue())
+                embed.set_footer(text= "Crias do Xamil", icon_url= "https://cdn.discordapp.com/emojis/761013506384330752.png?v=1")
+                await channel.send(embed = embed)
+                await channel.send("https://www.youtube.com/watch?v=tl9WC-OPP18")
+
 
     #Segunda Feira
     if day.weekday() == 0 and hora == "15:00:00":
