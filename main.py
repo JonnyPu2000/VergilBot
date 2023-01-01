@@ -1,7 +1,7 @@
 #Importando Bibliotecas
 
-import asyncio
 import discord
+import asyncio
 import login
 from discord import File, Embed
 from discord import message
@@ -18,7 +18,6 @@ from asyncio import sleep
 from pytube import YouTube
 from moviepy.editor import VideoFileClip, concatenate_videoclips
 import shutil
-import ffmpeg
 import youtube_dl
 
 #Prefixo para comandos
@@ -28,6 +27,7 @@ intents.members = True
 client = commands.Bot(command_prefix = '!',intents= intents)
 
 voice_clients = {}
+queue = {}
 
 yt_dl_opts = {'format' : 'bestaudio/best'}
 
@@ -41,8 +41,20 @@ async def on_ready():
     print("Inicializado")
     if not mandaDia.start():
         mandaDia.start()
-    
-    
+
+@client.command()
+async def convert(ctx):
+    if len(ctx.message.attachments) > 0:      
+            for attachment in ctx.message.attachments:
+                await attachment.save(attachment.filename)
+
+    await ctx.send("Convertendo o video, favor aguarde!")
+    os.system("ffmpeg -i {} converted.webm -hide_banner".format(attachment.filename))
+
+    await ctx.send(file = File("converted.webm"))
+
+    os.remove(attachment.filename)
+    os.remove("converted.webm")
 
 @client.command()
 async def play(ctx,url = None):
@@ -73,7 +85,8 @@ async def play(ctx,url = None):
 
             player  =  discord.FFmpegPCMAudio(song,**ffmpeg_options)
             
-            voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
+            
+            await voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
 
             while voice_clients[ctx.message.author.voice.channel.guild.id].is_playing():
                 await sleep(1)
@@ -93,9 +106,15 @@ async def play(ctx,url = None):
                 await attachment.save(attachment.filename)
     
             player  =  discord.FFmpegPCMAudio(attachment.filename,**ffmpeg_options)
+            
+            if ctx.message.guild.id in queue:
+                queue[ctx.message.guild.id].append(player)
+            else:
+                queue[ctx.message.guild.id] = [player]
+            
+            player = queue[ctx.message.guild.id].pop(0)
             voice_clients[ctx.message.author.voice.channel.guild.id].play(player)
-
-
+                
             while voice_clients[ctx.message.author.voice.channel.guild.id].is_playing():
                 await sleep(1)
             else:
@@ -145,10 +164,6 @@ async def start(ctx,enabled = "start",interval = 1,message = ""):
         mandaDia.change_interval(seconds= int(interval))
         mandaDia.start()
 
-
-
-
-
 #Função de juntar dois videos, passando o link do video do youtube
 @client.command()
 async def vergil(ctx,link,x,y):
@@ -169,8 +184,6 @@ async def vergil(ctx,link,x,y):
         ctx.send("Download realizado com sucesso!")
         return title
 
-    
-
     def edit_video(link):
         title = download_yt(link)
         video = VideoFileClip("videos/" + title + ".mp4")
@@ -187,8 +200,7 @@ async def vergil(ctx,link,x,y):
     edit_video(link)
     await ctx.send(file = File("videos/vergilStatus.mp4"))
     shutil.rmtree("./videos")
-
-
+            
 @tasks.loop(seconds = 1)
 async def mandaDia():
 
@@ -200,7 +212,7 @@ async def mandaDia():
 
     hora = datetime.datetime.now().strftime("%H:%M:%S")
     
-    print(hora)
+    
     day_month = datetime.datetime.now().strftime("%d/%m")
     day = datetime.datetime.today()
 
@@ -267,7 +279,7 @@ async def mandaDia():
                         embed.set_image(url="https://c.tenor.com/J5O9kElWluYAAAAC/mucalol-smurfdomuca-muca-muquinha-dan%C3%A7ando-dan%C3%A7a-dancing-macaco-macacolol.gif")
                         await channel.send(embed = embed)
                         await channel.send(file = File("./Assets/videos_dia/criaSexta.mp4"))
-                        await channel.send(file = File("./Assets/videos_dia/shrekSexta.mp4"))
+                        await channel.send(file = File("./Assets/videos_dia/gugu.mp4"))
     
     
 
@@ -602,6 +614,10 @@ async def foto(ctx):
 @client.command()
 async def tv(ctx):
     await ctx.send(file = File('./Assets/television.mp4'))
+
+
+
+
 
 
 
